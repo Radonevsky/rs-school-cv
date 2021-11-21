@@ -1,1 +1,1 @@
-https://github.com/Radonevsky/rsschool-cv/dist/
+https://radonevsky.github.io/rsschool-cv/dist/
