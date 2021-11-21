@@ -18,7 +18,7 @@ module.exports = {
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
-    devtool: "source-map",
+    devtool: (mode === 'development') ? 'source-map' : false,
     optimization: {
         splitChunks: {
             chunks: "all",
