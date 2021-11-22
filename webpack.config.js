@@ -24,6 +24,13 @@ module.exports = {
             chunks: "all",
         }
     },
+    devServer: {
+        static: {
+            directory: './dist',
+        },
+        compress: true,
+        port: 9000,
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'

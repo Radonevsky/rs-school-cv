@@ -1,4 +1,19 @@
 @font-face {
-  font-family: mainFont;
+  font-family: mainRegular;
   src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: mainBold;
+  src: url("../fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: secondaryRegular;
+  src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: secondaryBold;
+  src: url("../fonts/OpenSans-Bold.ttf");
 }
