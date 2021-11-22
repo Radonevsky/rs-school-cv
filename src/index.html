@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="overlay">
-    <header class="header">
-        <div class="container">
+    <div class="container">
+        <header class="header">
 
             <div class="logo">
                 <h2 class="logo__main">Portfolio</h2>
@@ -18,16 +18,26 @@
             </div>
             <nav class="nav">
                 <ul class="nav__list">
-                    <li class="nav__list-item">About</li>
-                    <li class="nav__list-item">Projects</li>
-                    <li class="nav__list-item">Contacts</li>
-                    <li class="nav__list-item">Experience</li>
-                    <li class="nav__list-item">Education</li>
+                    <li class="nav__list-item">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="#contacts">Contacts</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="#experience">Experience</a>
+                    </li>
+                    <li class="nav__list-item">
+                        <a href="#education">Education</a>
+                    </li>
                 </ul>
             </nav>
 
-        </div> <!-- /container -->
-    </header>
+        </header>
+    </div> <!-- /container -->
 
     <main class="main">
         <div class="container">
@@ -37,19 +47,19 @@
                     <h1 class="author__title">Ivan Radonevsky</h1>
                     <p class="author__subtitle">Frontend developer</p>
                     <ul class="author__skills">
-                        <li class="author__skills-item">HTML/CSS</li>
+                        <li class="author__skills-item">HTML / CSS</li>
                         <li class="author__skills-item">JavaScript</li>
-                        <li class="author__skills-item">Webpack</li>
-                        <li class="author__skills-item">React/Redux</li>
-                        <li class="author__skills-item">Vue</li>
                         <li class="author__skills-item">Git</li>
+                        <li class="author__skills-item">Webpack</li>
+                        <li class="author__skills-item">React / Redux</li>
+                        <li class="author__skills-item">Vue</li>
                     </ul>
                 </div>
                 <img class="canvas" src="./images/sphere.svg" alt="sphere">
 
             </section>
 
-            <section class="about">
+            <section class="about" id="about">
                 <h4 class="section__title">About</h4>
                 <h3 class="section__subtitle">A little about me</h3>
                 <div class="about__info">
@@ -62,7 +72,7 @@
                 <img class="photo" src="images/photo.jpg" alt="photo">
             </section>
 
-            <section class="contact">
+            <section class="contacts" id="contacts">
                 <h4 class="section__title">Contact</h4>
                 <h3 class="section__subtitle">A little about me</h3>
                 <ul class="contacts__list">
@@ -85,7 +95,7 @@
                 </ul>
             </section>
 
-            <section class="projects">
+            <section class="projects" id="projects">
                 <h4 class="section__title">Projects</h4>
                 <h3 class="section__subtitle">Samples of my work</h3>
                 <ul class="projects__list">
@@ -97,7 +107,7 @@
                 </ul>
             </section>
 
-            <section class="education">
+            <section class="education" id="education">
                 <h4 class="section__title">Education</h4>
                 <h3 class="section__subtitle">Where I studied:</h3>
                 <ul class="education__list">
