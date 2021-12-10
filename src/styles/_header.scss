@@ -1,9 +1,14 @@
+@import "mixins";
+@import "variables";
+
 .header {
   display: flex;
   height: 78px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
 
 
   .logo {
@@ -17,31 +22,158 @@
       margin-top: -3px;
     }
   }
+  .nav {
+    @include for-tablet-portrait-up {
+      position: fixed;
+      top: 20px;
+      bottom: 20px;
+      right: -100%;
 
-  .nav__list {
-    display: flex;
+      width: 300px;
 
-    &-item {
-      margin-right: 50px;
-      position: relative;
-      &:last-child {
-        margin-right: 0;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      background-color: $background;
+      box-shadow: 0 0 3px 1px lighten($blue, 10%);
+
+      transition: right .3s;
+    }
+    .nav__list {
+      display: flex;
+      max-width: 110px;
+      justify-content: center;
+
+      @include for-tablet-portrait-up {
+        flex-wrap: wrap;
+        margin: 100px auto 0;
+
+        border-radius: 30px;
+        background-color: #1F1F1F;
+        .nav__list-item {
+          margin: 0;
+        }
+        &-item:not(:first-child) {
+          margin-top: 40px;
+        }
       }
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 1px;
-        width: 0;
-        background-color: #FFFFFF;
+
+      &-item {
+        margin-right: 50px;
+        position: relative;
+
+        &:last-child {
+          margin-right: 0;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 1px;
+          width: 0;
+          background-color: #fff;
+        }
+        &:hover:before {
+          width: 100%;
+          transition: cubic-bezier(.45, -0.67, .53, 1.63) .2s all;
+        }
+        @include for-tablet-portrait-up {
+          opacity: 0;
+        }
       }
-      &:hover:before {
-        width: 100%;
-        transition: cubic-bezier(.45, -0.67, .53, 1.63) .2s all;
+    }
+
+    &.active-burger {
+      right: 0;
+      transition: right .3s;
+      .nav__list-item {
+        opacity: 100%;
+        transition: opacity 1s;
       }
     }
   }
 
+
+
+  .burger {
+    display: none;
+    $burger-size: 30px;
+    @include for-tablet-portrait-up {
+      display: block;
+    }
+    .burger__button {
+      z-index: 10;
+      width: $burger-size * 1.5;
+      height: $burger-size;
+      position: relative;
+      transition: .2s ease-out all;
+
+      .burger__line {
+        position: absolute;
+        background-color: #FFF;
+        left: 0;
+        right: 0;
+        height: 2px;
+        transition: .2s ease-out all;
+      }
+      .burger__line:nth-child(1) {
+        top: 0;
+      }
+      .burger__line:nth-child(2) {
+        top: 33.3%;
+      }
+      .burger__line:nth-child(3) {
+        top: 66.6%;
+      }
+      .burger__line:nth-child(4) {
+        top: 100%;
+      }
+      &:hover {
+        cursor: pointer;
+        .burger__line {
+          background-color: lighten($blue, 50%) ;
+          box-shadow: 0 0 2px 1px $blue;
+        }
+        .burger__line:nth-child(1) {
+          left: 40%;
+        }
+        .burger__line:nth-child(2),
+        .burger__line:nth-child(3){
+          transform: rotate(20deg);
+        }
+        .burger__line:nth-child(4) {
+          right: 40%;
+        }
+      }
+
+    }
+    .burger__list {
+      display: none;
+    }
+
+    &.active, &.active:hover{
+      .burger__line:nth-child(1) {
+        left: 50%;
+        right: 50%;
+        box-shadow: none;
+      }
+      .burger__line:nth-child(2) {
+        transform: rotate(45deg);
+        top: 50%
+      }
+      .burger__line:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 50%
+      }
+      .burger__line:nth-child(4) {
+        left: 50%;
+        right: 50%;
+        box-shadow: none;
+      }
+    }
+
+
+
+  }
 }
