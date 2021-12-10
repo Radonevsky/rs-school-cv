@@ -1,8 +1,14 @@
 .about {
+  display: flex;
 
-  .photo {
-    max-width: 300px;
+  &__info {
+    max-width: 50%;
+
+  }
+  &__photo {
+    max-width: 280px;
     height: 100%;
+    margin-left: 15%;
 
     border-radius: 50%;
   }

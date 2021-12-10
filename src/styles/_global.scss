@@ -1,3 +1,5 @@
+@import "mixins";
+@import "variables";
 html {
   scroll-behavior: smooth;
 }
@@ -8,10 +10,10 @@ html {
 
 body {
   margin: 0;
-  padding: 0 30px;
   font-family: mainRegular, sans-serif;
   color: #FFF;
-  background-color: #1F1F1F;
+  background-color: $background;
+
 
   scroll-behavior: smooth;
 
@@ -25,6 +27,10 @@ body {
     border-right: 1px solid #383838;
 
     position: relative;
+
+    @include for-desktop-up {
+      width: 95%;
+    }
 
     &:after {
       content: "";
@@ -46,9 +52,7 @@ body {
       background-color: rgba(255, 255, 255, 0.11);
       z-index: -1;
     }
-    @media (max-width: 1330px) {
-      border-width: 2px;
-    }
+
   }
 }
 
@@ -70,8 +74,32 @@ a {
   color: #FFFFFF;
 }
 
+button {
+  background: 0;
+  border: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 1300px;
   margin: 0 auto;
+
 }
 
+.section {
+  margin-top: 150px;
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 170%;
+  }
+  &__title {
+    margin: 15px 0;
+    font-family: mainBold, 'sans-serif';
+    font-size: 46px;
+  }
+  &__text {
+    font-size: 16px;
+  }
+}
