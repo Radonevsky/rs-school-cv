@@ -1,6 +1,7 @@
 @import "mixins";
 @import "variables";
 
+
 .author {
   display: flex;
   margin-top: 150px;
@@ -11,13 +12,17 @@
     flex-wrap: wrap-reverse;
     justify-content: center;
   }
+  @include for-phone-only {
+    margin-top: 40px;
+  }
 
   &__main-info {
     max-width: 510px;
     @include for-tablet-portrait-up {
-      margin-top: 20px;
+      margin-top: 40px;
       text-align: center;
     }
+
   }
 
   &__title {
@@ -27,11 +32,19 @@
     @include for-tablet-landscape-up {
       font-size: 62px;
     }
+    @include for-phone-only {
+      font-size: 42px;
+    }
+
   }
 
   &__subtitle {
     margin-top: 24px;
     font-size: 30px;
+    @include for-phone-only {
+      margin-top: 18px;
+      font-size: 20px;
+    }
   }
 
   &__skills {
@@ -44,16 +57,24 @@
       margin: 30px auto 0 auto;
       justify-content: center;
     }
+    @include for-phone-only {
+      gap: 14px;
+      margin: 20px auto 0 auto;
+    }
     &-item {
       padding: 2px 16px;
       font-size: 21px;
       background-color: $blue;
       border-radius: 64px;
+      @include for-phone-only {
+        font-size: 16px;
+      }
     }
   }
 
   .canvas {
-    max-width: 492px;
+    max-width: 50%;
+    width: 100%;
     height: 100%;
   }
 
