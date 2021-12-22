@@ -10,16 +10,25 @@
 
   position: relative;
 
+  @include for-phone-only {
+    max-height: 58px;
+  }
 
   .logo {
     &__main {
       font-family: secondaryBold, 'sans-serif';
       font-weight: bold;
       font-size: 45px;
+      @include for-phone-only {
+        font-size: 35px;
+      }
     }
     &__caption {
       font-size: 16px;
       margin-top: -3px;
+      @include for-phone-only {
+        font-size: 12px;
+      }
     }
   }
   .nav {
@@ -40,12 +49,12 @@
     }
     .nav__list {
       display: flex;
-      max-width: 110px;
       justify-content: center;
 
       @include for-tablet-portrait-up {
         flex-wrap: wrap;
         margin: 100px auto 0;
+        max-width: 110px;
 
         border-radius: 30px;
         background-color: #1F1F1F;
@@ -98,16 +107,19 @@
 
   .burger {
     display: none;
-    $burger-size: 30px;
-    @include for-tablet-portrait-up {
-      display: block;
-    }
+    $burger-size: 32px;
+
     .burger__button {
       z-index: 10;
       width: $burger-size * 1.5;
       height: $burger-size;
       position: relative;
       transition: .2s ease-out all;
+      @include for-phone-only {
+        $burger-size: 24px;
+        width: $burger-size * 1.5;
+        height: $burger-size;
+      }
 
       .burger__line {
         position: absolute;
@@ -121,18 +133,18 @@
         top: 0;
       }
       .burger__line:nth-child(2) {
-        top: 33.3%;
+        top: 33.3% - 2;
       }
       .burger__line:nth-child(3) {
-        top: 66.6%;
+        top: 66.6% - 4;
       }
       .burger__line:nth-child(4) {
-        top: 100%;
+        bottom: 0;
       }
       &:hover {
         cursor: pointer;
         .burger__line {
-          background-color: lighten($blue, 50%) ;
+          background-color: lighten($blue, 50%);
           box-shadow: 0 0 2px 1px $blue;
         }
         .burger__line:nth-child(1) {
@@ -150,6 +162,10 @@
     }
     .burger__list {
       display: none;
+    }
+
+    @include for-tablet-portrait-up {
+      display: block;
     }
 
     &.active, &.active:hover{

@@ -31,6 +31,9 @@ body {
     @include for-desktop-up {
       width: 95%;
     }
+    @include for-phone-only {
+      padding-top: 10px;
+    }
 
     &:after {
       content: "";
@@ -88,16 +91,29 @@ button {
 
 .section {
   margin-top: 150px;
+  @include for-tablet-portrait-up {
+    margin-top: 80px;
+  }
+  @include for-phone-only {
+    margin-top: 40px;
+  }
 
   &__subtitle {
-    font-size: 20px;
+    font-size: $subtitle-size;
     font-weight: 400;
-    line-height: 170%;
+    @include for-phone-only {
+      font-size: $subtitle-size-for-phone;
+    }
   }
   &__title {
-    margin: 15px 0;
+    margin-top: 5px;
+    margin-bottom: 15px;
     font-family: mainBold, 'sans-serif';
-    font-size: 46px;
+    font-size: $title-size;
+    line-height: 1.1;
+    @include for-phone-only {
+      font-size: $title-size-for-phone;
+    }
   }
   &__text {
     font-size: 16px;

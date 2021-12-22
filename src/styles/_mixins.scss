@@ -2,6 +2,9 @@
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }
+@mixin for-phone-landscape-up {
+  @media (max-width: 768px) { @content; }
+}
 @mixin for-tablet-portrait-up {
   @media (max-width: 992px) { @content; }
 }

@@ -1,0 +1,58 @@
+@import "mixins";
+@import "variables";
+.contacts {
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @include for-tablet-portrait-up {
+      max-width: 500px;
+      justify-content: start;
+    }
+    @include for-phone-only {
+      max-width: 300px;
+    }
+  }
+
+  &__item {
+    min-width: 200px;
+    padding-left: $icon-size + 10;
+
+    &:nth-child(n + 3) {
+      @include for-tablet-portrait-up {
+        margin-top: 15px;
+      }
+    }
+    &:not(:first-child) {
+      @include for-phone-only {
+        margin-top: 15px;
+      }
+    }
+
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: $icon-size;
+      height: $icon-size;
+      background: 0 0/100% 100% no-repeat;
+    }
+  }
+
+  .phone:before {
+    background-image: url("../images/phone.svg");
+  }
+  .email:before {
+    background-image: url("../images/mail.svg");
+  }
+  .github:before {
+    background-image: url("../images/github.svg");
+  }
+  .telegram:before {
+    background-image: url("../images/telegram.svg");
+  }
+}

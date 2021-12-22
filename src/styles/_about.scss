@@ -1,16 +1,45 @@
+@import "variables";
+@import "mixins";
+
 .about {
   display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  margin-right: 50px;
+  @include for-phone-landscape-up {
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin-right: 0;
+  }
 
   &__info {
-    max-width: 50%;
+    max-width: 700px;
+    min-width: 274px;
+    @include for-phone-landscape-up {
 
+    }
   }
   &__photo {
-    max-width: 280px;
-    height: 100%;
-    margin-left: 15%;
+    max-width: 320px;
+    width: 100%;
+    height: auto;
 
     border-radius: 50%;
+    box-shadow: 0 0 3px 2px lighten($blue, 10%);
+    transition: all .5s;
+
+    &:hover {
+      box-shadow: 0 0 6px 4px $blue;
+    }
+
+/*    @include for-tablet-portrait-up {
+      width: 70%;
+    }*/
+  }
+  .section__title {
+    @include for-tablet-portrait-up {
+      max-width: 300px;
+    }
   }
 
 }
