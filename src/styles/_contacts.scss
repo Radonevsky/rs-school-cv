@@ -8,7 +8,7 @@
     flex-wrap: wrap;
 
     @include for-tablet-portrait-up {
-      max-width: 500px;
+      max-width: 600px;
       justify-content: start;
     }
     @include for-phone-only {
@@ -18,11 +18,14 @@
 
   &__item {
     min-width: 200px;
-    padding-left: $icon-size + 10;
+    padding-left: $icon-size + 15;
+    @include for-tablet-portrait-up {
+      margin-right: 30px;
+    }
 
     &:nth-child(n + 3) {
       @include for-tablet-portrait-up {
-        margin-top: 15px;
+        margin-top: 20px;
       }
     }
     &:not(:first-child) {

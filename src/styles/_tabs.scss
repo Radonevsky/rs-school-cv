@@ -1,0 +1,44 @@
+@import "variables";
+
+.tabs {
+  .tabs__header {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.59);
+
+    @include for-phone-only {
+      font-size: 16px;
+    }
+
+    &-item {
+      padding: 5px 12px;
+      margin-bottom: 16px;
+      margin-right: 30px;
+      border: 1px solid $blue;
+      border-radius: 10px;
+      transition: all .2s;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 2px 1px $blue;
+        border-radius: 22px;
+        background-color: darken($blue, 40%);
+        transition: all .2s;
+      }
+    }
+    .active {
+      color: #fff;
+      background-color: $blue;
+      border-radius: 22px;
+    }
+  }
+
+  .tabs__content {
+    &-item {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  }
+}
