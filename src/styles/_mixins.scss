@@ -1,3 +1,13 @@
+
+//=====@Rotate and shadow=====//
+@mixin rotate-container {
+  @media (min-width: 1800px) { @content; }
+}
+@mixin rotate-inner {
+
+}
+
+
 //=====@Media=====//
 @mixin for-phone-only {
   @media (max-width: 599px) { @content; }
@@ -17,3 +27,5 @@
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
 }
+
+

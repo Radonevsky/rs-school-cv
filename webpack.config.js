@@ -1,6 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const webpack = require('webpack')
+
 
 let mode = 'development';
 if (process.env.NODE_ENV === 'production') {
@@ -40,6 +42,9 @@ module.exports = {
             template: "./src/index.html",
         }),
         new FaviconsWebpackPlugin(),
+        new webpack.ProvidePlugin({
+            gsap: 'gsap',
+        })
     ],
     module: {
         rules: [

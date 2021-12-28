@@ -12,7 +12,7 @@ body {
   margin: 0;
   font-family: mainRegular, sans-serif;
   color: #FFF;
-  background-color: $background;
+  background: $background;
 
 
   scroll-behavior: smooth;
@@ -23,8 +23,8 @@ body {
     margin: 0 auto;
     padding-top: 30px;
 
-    border-left: 1px solid #383838;
-    border-right: 1px solid #383838;
+    border-left: 1px solid $border-overlay;
+    border-right: 1px solid $border-overlay;
 
     position: relative;
 

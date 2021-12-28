@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
 
+
   position: relative;
 
   @include for-phone-only {
@@ -15,17 +16,46 @@
   }
 
   .logo {
+    transform: rotate(-10deg);
+
+
+
     &__main {
       font-family: secondaryBold, 'sans-serif';
       font-weight: bold;
       font-size: 45px;
+      color: $red;
+      letter-spacing: 0.2rem;
+
+
+      .animation {
+        transform: rotate(-10deg) skew(-20deg);
+
+
+        position: relative;
+
+
+        span {
+          display: inline-block;
+          transform: skew(-10deg);
+          text-shadow: $shadow 1px 1px, $shadow 2px 2px, $shadow 3px 3px, $shadow 4px 4px, $shadow 5px 5px, $shadow 6px 6px;
+          min-width: 10px;
+          min-height: 10px;
+          position: relative;
+        }
+      }
+
+
       @include for-phone-only {
         font-size: 35px;
       }
     }
     &__caption {
-      font-size: 16px;
+      font-size: 18px;
       margin-top: -3px;
+      color: $green;
+      letter-spacing: 0.2rem;
+
       @include for-phone-only {
         font-size: 12px;
       }
