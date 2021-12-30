@@ -1,19 +1,63 @@
-import {spanizer_letters} from "./helpers";
+import {spanize_letters} from "./helpers";
 import {gsap} from "gsap";
 
+/*<=== Selectors ===>*/
+const logoMain = document.querySelector('.logo__main .animation')
+const logoCaption = document.querySelector('.logo__caption .animation')
+const authorTitleFirst = document.querySelector('.author__title .animation.first')
+const authorTitleLast = document.querySelector('.author__title .animation.last')
 
-let anim_el_arr = document.querySelectorAll('.animation')
+const logoMainSpaned = spanize_letters(logoMain)
+const logoCaptionSpaned = spanize_letters(logoCaption)
+const authorTitleFirstSpaned = spanize_letters(authorTitleFirst)
+const authorTitleLastSpaned = spanize_letters(authorTitleLast)
 
-anim_el_arr.forEach(el => {
-    spanizer_letters(el)
 
+/*
+console.log(mainLogoSpaned.querySelectorAll('.letter'))*/
+
+/*<=== Header ===>*/
+Array.from(logoMainSpaned.querySelectorAll('.letter')).forEach((el, idx) => {
+    gsap.from(el, 1, {
+        opacity: 0,
+        scale: .7,
+        bottom: -100,
+        ease: "elastic",
+        rotation: 360,
+        delay: idx * 0.1
+    })
 })
 
-const letters = document.querySelectorAll('.animation span')
+Array.from(logoCaptionSpaned.querySelectorAll('.letter')).forEach((el, idx) => {
+    gsap.from(el, .3, {
+        opacity: 0,
+        scale: .7,
+        top: -50,
+        delay: idx * .1
+    })
+})
 
-function animation() {
-    gsap.fromTo(".animation span", {opacity: 0, bottom: -80}, {opacity: 1, bottom: 0});
-}
+let images = gsap.utils.toArray(logoMainSpaned.querySelectorAll('.letter'));
+images.forEach(image => {
+    image.addEventListener("mouseenter", () => {
+        // animate the "hovered" image
+        gsap.to(image, {top: 3, duration: .5, ease: "elastic"})
+    })
+    image.addEventListener("mouseleave", () => {
+        // animate the "hovered" image
+        gsap.to(image, {top: 0, duration: .5,  ease: "elastic"})
+    })
+})
 
-animation()
+/*<=== Author ===>*/
 
+Array.from(authorTitleFirstSpaned.querySelectorAll('.letter')).forEach((el, idx) => {
+    gsap.from(el, 1, {
+        opacity: 0,
+        scale: .7,
+        bottom: -100,
+        ease: "elastic",
+        rotation: 360,
+        delay: idx * 0.1
+    })
+})

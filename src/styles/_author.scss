@@ -29,6 +29,14 @@
     font-family: mainBold, 'sans-serif';
     font-size: 78px;
     line-height: 116%;
+
+    .animation {
+      @include volume-container;
+      span {
+        @include volume-inner;
+      }
+    }
+
     @include for-tablet-landscape-up {
       font-size: 62px;
     }
