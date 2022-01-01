@@ -101,6 +101,8 @@ button {
   &__subtitle {
     font-size: $subtitle-size;
     font-weight: 400;
+    color: $yellow;
+    @include volume-shadow-text;
     @include for-phone-only {
       font-size: $subtitle-size-for-phone;
     }
@@ -111,11 +113,17 @@ button {
     font-family: mainBold, 'sans-serif';
     font-size: $title-size;
     line-height: 1.1;
+    color: $yellow;
+    @include volume-shadow-text;
     @include for-phone-only {
       font-size: $title-size-for-phone;
     }
   }
   &__text {
     font-size: 16px;
+    padding: 10px;
+    background-color: $blue;
+    border-radius: 15px;
+    @include volume-shadow;
   }
 }

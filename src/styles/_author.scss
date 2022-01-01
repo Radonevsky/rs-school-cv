@@ -3,6 +3,7 @@
 
 
 .author {
+  cursor: default;
   display: flex;
   margin-top: 150px;
   justify-content: space-between;
@@ -29,6 +30,8 @@
     font-family: mainBold, 'sans-serif';
     font-size: 78px;
     line-height: 116%;
+    color: $yellow;
+    cursor: pointer;
 
     .animation {
       @include volume-container;
@@ -49,6 +52,9 @@
   &__subtitle {
     margin-top: 24px;
     font-size: 30px;
+    color: $green;
+
+    @include volume-inner;
     @include for-phone-only {
       margin-top: 18px;
       font-size: 20px;
@@ -74,6 +80,7 @@
       font-size: 21px;
       background-color: $blue;
       border-radius: 32px;
+      @include volume-shadow;
       @include for-phone-only {
         font-size: 16px;
       }
