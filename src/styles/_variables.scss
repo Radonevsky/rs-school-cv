@@ -1,7 +1,13 @@
 @import "mixins";
 
-$blue: #1378EF;
-$background: #1F1F1F;
+$blue: #4374e5;
+$red: #e55643 ;
+$green: #2b9f5e;
+$yellow: #f1c83c;
+$shadow: #533d4a;
+
+$background: linear-gradient(to bottom, #405166 0%,#656f6f 100%);
+$border-overlay: rgba(255, 255, 255, 0.11);
 
 $title-size: 46px;
 $title-size-for-phone: 32px;

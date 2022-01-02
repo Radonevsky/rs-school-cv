@@ -15,23 +15,51 @@
   }
 
   .logo {
+    transform: rotate(-10deg);
+    cursor: pointer;
+
     &__main {
       font-family: secondaryBold, 'sans-serif';
       font-weight: bold;
       font-size: 45px;
+      color: $red;
+      letter-spacing: 0.2rem;
+
+      .animation {
+        @include volume-container;
+        span {
+          transform: skew(-10deg);
+          @include volume-inner;
+        }
+      }
+
+
       @include for-phone-only {
         font-size: 35px;
       }
     }
     &__caption {
-      font-size: 16px;
+      font-family: secondaryBold, 'sans-serif';
+      font-size: 18px;
       margin-top: -3px;
+      color: $green;
+      letter-spacing: 0.2rem;
+
+      .animation {
+        @include volume-container;
+        span {
+          transform: skew(-10deg);
+          @include volume-inner;
+        }
+      }
+
       @include for-phone-only {
         font-size: 12px;
       }
     }
   }
   .nav {
+
     @include for-tablet-portrait-up {
       position: fixed;
       top: 20px;
@@ -67,13 +95,15 @@
       }
 
       &-item {
+
+        @include volume-inner;
         margin-right: 50px;
         position: relative;
 
         &:last-child {
           margin-right: 0;
         }
-        &:before {
+        /*&:before {
           content: "";
           position: absolute;
           left: 0;
@@ -81,15 +111,21 @@
           bottom: 0;
           height: 1px;
           width: 0;
-          background-color: #fff;
-        }
-        &:hover:before {
+          background-color: $red;
+          box-shadow: $shadow 1px 1px, $shadow 2px 2px;
+        }*/
+/*        &:hover:before {
           width: 100%;
-          transition: cubic-bezier(.45, -0.67, .53, 1.63) .2s all;
-        }
+          transition: cubic-bezier(.45, -0.67, .53, 1.63) .3s all;
+
+        }*/
         @include for-tablet-portrait-up {
           opacity: 0;
         }
+      }
+      a {
+        color: lighten($green, 10%);
+        transition: color .3s;
       }
     }
 
@@ -123,7 +159,7 @@
 
       .burger__line {
         position: absolute;
-        background-color: #FFF;
+        background-color: $yellow;
         left: 0;
         right: 0;
         height: 2px;
@@ -144,8 +180,7 @@
       &:hover {
         cursor: pointer;
         .burger__line {
-          background-color: lighten($blue, 50%);
-          box-shadow: 0 0 2px 1px $blue;
+          box-shadow: 0 0 2px 1px $red;
         }
         .burger__line:nth-child(1) {
           left: 40%;

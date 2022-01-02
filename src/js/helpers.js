@@ -21,4 +21,9 @@ function removeClass(el, className = 'active') {
     }
 }
 
-export {activeToggle, addClass, removeClass};
+function spanize_letters(el) {
+    el.innerHTML = el.innerHTML.replace(/(.)/g, '<span class="letter">$1</span>')
+    return el
+}
+
+export {activeToggle, addClass, removeClass, spanize_letters};

@@ -18,7 +18,11 @@
 
   &__item {
     min-width: 200px;
-    padding-left: $icon-size + 15;
+    padding: 5px 10px 5px $icon-size + 25;
+    background-color: $blue;
+    border-radius: 15px;
+    cursor: pointer;
+    @include volume-shadow;
     @include for-tablet-portrait-up {
       margin-right: 30px;
     }
@@ -38,8 +42,8 @@
     &:before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 5px;
+      left: 10px;
       width: $icon-size;
       height: $icon-size;
       background: 0 0/100% 100% no-repeat;
