@@ -67,8 +67,9 @@
                         <li class="author__skills-item">Git</li>
                     </ul>
                 </div>
-                <img class="canvas" src="./images/sphere.svg" alt="sphere">
-
+                <canvas id="canvasOne" width="500" height="500" z-index="-2">
+                    Your browser does not support HTML5 canvas.
+                </canvas>
             </section>
 
             <section class="section about" id="about">
@@ -80,8 +81,15 @@
                         interested in everything related to web development and programming in general. I want to
                         develop and grow professionally in this field.
                     </p>
+
+                    <div class="about__english">
+                        <p class="about__subtitle">My enslish level:</p>
+                        <img class="about__flag" src="./images/british.png" alt="english">
+                        <canvas class="english__canvas" id="englishCanvas"></canvas>
+                    </div>
+                    
                 </div>
-                <img class="about__photo" src="images/photo.jpg" alt="photo">
+                <img class="about__photo" src="./images/photo.jpg" alt="photo">
             </section>
 
             <section class="section contacts" id="contacts">
@@ -89,22 +97,28 @@
                 <h3 class="section__title">My contacts</h3>
                 <ul class="contacts__list">
                     <li class="contacts__item phone">
-                        <h3 class="section_subtitle">Phone</h3>
-                        <a href="tel:+79523910804">+ 7 (952) 391-08-04</a>
+                        <a href="tel:+79523910804">
+                            <h3 class="section_subtitle">Phone</h3>
+                            <p>+ 7 (952) 391-08-04</p>
+                        </a>
                     </li>
                     <li class="contacts__item email">
                         <a href="mailto:radonevsky@yandex.ru">
                             <h3 class="section_subtitle">Email</h3>
-                        <p>radonevsky@yandex.ru</p>
+                            <p>radonevsky@yandex.ru</p>
                         </a>
                     </li>
                     <li class="contacts__item github">
-                        <h3 class="section_subtitle">Github</h3>
-                        <a href="https://github.com/Radonevsky">Ivan Radonevsky</a>
+                        <a href="https://github.com/Radonevsky">
+                            <h3 class="section_subtitle">Github</h3>
+                            <p>Ivan Radonevsky</p>
+                        </a>
                     </li>
                     <li class="contacts__item telegram">
-                        <h3 class="section_subtitle">Telegram</h3>
-                        <a href="https://t.me/rdnsky">@rdnsky</a>
+                        <a href="https://t.me/rdnsky">
+                            <h3 class="section_subtitle">Telegram</h3>
+                            <p>@rdnsky</p>
+                        </a>
                     </li>
                 </ul>
             </section>

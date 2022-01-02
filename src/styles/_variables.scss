@@ -1,12 +1,17 @@
 @import "mixins";
 
-$blue: #4374e5;
+$blue: #4f6fba;
+$blue-text: #70b5ea;
 $red: #e55643 ;
 $green: #2b9f5e;
 $yellow: #f1c83c;
 $shadow: #533d4a;
+$pink: #faabd5;
+$pink-background: #8c5a80;
+$darkgreen: #3d7249;
 
-$background: linear-gradient(to bottom, #405166 0%,#656f6f 100%);
+$background: #415266;
+$background-burger: lighten(#405166, 10%);
 $border-overlay: rgba(255, 255, 255, 0.11);
 
 $title-size: 46px;

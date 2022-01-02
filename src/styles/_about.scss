@@ -22,14 +22,15 @@
   &__photo {
     max-width: 320px;
     width: 100%;
-    height: auto;
+    height: 100%;
+
 
     border-radius: 50%;
-    box-shadow: 0 0 3px 2px lighten($blue, 10%);
+    box-shadow: 0 0 3px 2px lighten($yellow, 10%);
     transition: all .5s;
 
     &:hover {
-      box-shadow: 0 0 6px 4px $blue;
+      box-shadow: 0 0 6px 4px $pink-background;
     }
 
 /*    @include for-tablet-portrait-up {
@@ -40,6 +41,24 @@
     @include for-tablet-portrait-up {
       max-width: 300px;
     }
+  }
+  &__subtitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: $yellow;
+    @include volume-shadow-text;
+  }
+
+  &__flag {
+    display: inline-block;
+    max-width: 100px;
+    height: 100%;
+  }
+
+  .english__canvas {
+    display: block;
+
   }
 
 }

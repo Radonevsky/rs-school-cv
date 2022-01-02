@@ -18,18 +18,22 @@
       border: 1px solid $blue;
       border-radius: 10px;
       transition: all .2s;
+      @include volume-shadow;
       &:hover {
         cursor: pointer;
         box-shadow: 0 0 2px 1px $blue;
         border-radius: 22px;
         background-color: darken($blue, 40%);
         transition: all .2s;
+        @include volume-shadow;
       }
     }
     .active {
       color: #fff;
       background-color: $blue;
       border-radius: 22px;
+      z-index: 10;
+      @include volume-shadow;
     }
   }
 

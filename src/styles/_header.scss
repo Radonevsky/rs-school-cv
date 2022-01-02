@@ -22,12 +22,13 @@
       font-family: secondaryBold, 'sans-serif';
       font-weight: bold;
       font-size: 45px;
-      color: $red;
+      color: $yellow;
       letter-spacing: 0.2rem;
 
       .animation {
         @include volume-container;
         span {
+          display: inline-block;
           transform: skew(-10deg);
           @include volume-inner;
         }
@@ -39,10 +40,10 @@
       }
     }
     &__caption {
-      font-family: secondaryBold, 'sans-serif';
+      font-family: secondaryRegular, 'sans-serif';
       font-size: 18px;
       margin-top: -3px;
-      color: $green;
+      color: $pink;
       letter-spacing: 0.2rem;
 
       .animation {
@@ -67,13 +68,13 @@
       right: -100%;
 
       width: 300px;
-
+      background-color: $background-burger;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
-      background-color: $background;
       box-shadow: 0 0 3px 1px lighten($blue, 10%);
 
       transition: right .3s;
+      z-index: 10;
     }
     .nav__list {
       display: flex;
@@ -85,7 +86,7 @@
         max-width: 110px;
 
         border-radius: 30px;
-        background-color: #1F1F1F;
+
         .nav__list-item {
           margin: 0;
         }
@@ -103,7 +104,8 @@
         &:last-child {
           margin-right: 0;
         }
-        /*&:before {
+        //Underline
+/*        &:before {
           content: "";
           position: absolute;
           left: 0;
@@ -113,8 +115,8 @@
           width: 0;
           background-color: $red;
           box-shadow: $shadow 1px 1px, $shadow 2px 2px;
-        }*/
-/*        &:hover:before {
+        }
+        &:hover:before {
           width: 100%;
           transition: cubic-bezier(.45, -0.67, .53, 1.63) .3s all;
 
@@ -124,7 +126,7 @@
         }
       }
       a {
-        color: lighten($green, 10%);
+        color: lighten($yellow, 10%);
         transition: color .3s;
       }
     }
