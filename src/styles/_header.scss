@@ -9,9 +9,10 @@
   align-items: center;
 
   position: relative;
+  z-index: 2;
 
   @include for-phone-only {
-    max-height: 58px;
+    max-height: 68px;
   }
 
   .logo {

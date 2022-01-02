@@ -49,6 +49,7 @@
       font-size: 42px;
     }
 
+
   }
 
   &__subtitle {
@@ -90,5 +91,8 @@
   }
   canvas {
    z-index: 1;
+    @include for-phone-only {
+      width: 300px;
+    }
   }
 }

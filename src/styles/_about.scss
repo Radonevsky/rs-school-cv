@@ -56,9 +56,26 @@
     height: 100%;
   }
 
+  .english-bg {
+    height: 130px;
+    width: 100%;
+    background: url('../images/british-bg.jpg') 0 200px/800px 500px fixed;
+    @include for-tablet-landscape-up {
+      background-size: 500px 300px;
+    }
+    @include for-phone-landscape-up {
+      background-size: 768px 100%;
+    }
+    @include for-phone-only {
+      background-size: 100vw 100vh;
+    }
+  }
+
   .english__canvas {
     display: block;
-
+    @include for-phone-only {
+      width: 300px;
+    }
   }
 
 }
