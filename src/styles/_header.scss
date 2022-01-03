@@ -2,19 +2,23 @@
 @import "variables";
 
 .header {
-  display: flex;
-  height: 78px;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-
-  position: relative;
+  padding-top: 15px;
+  height: 140px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 2;
+  background-color: rgba(255, 171, 213, .3);
 
   @include for-phone-only {
     max-height: 68px;
   }
-
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .logo {
     transform: rotate(-10deg);
     cursor: pointer;
