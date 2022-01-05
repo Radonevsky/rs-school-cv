@@ -5,9 +5,9 @@
 .author {
   cursor: default;
   display: flex;
-  margin-top: 100px;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
   @include for-tablet-portrait-up {
     margin-top: 80px;
     flex-wrap: wrap-reverse;
@@ -90,7 +90,7 @@
     }
   }
   canvas {
-   z-index: 1;
+
     @include for-phone-only {
       width: 300px;
     }

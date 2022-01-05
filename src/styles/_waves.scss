@@ -1,12 +1,16 @@
 @import "mixins";
 
 .header__waves {
+  //display: none;
   position: absolute;
   width: 100%;
   height: 100%;
   top:0;
   left: 0;
   transform: rotate(180deg);
+  border-radius: 20% 20% 0 0;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .wave,
@@ -18,12 +22,10 @@
   left: -125%;
   width: 350vw;
   height: 350vw;
-
   background-color: transparent;
   border-radius: 42%;
   box-shadow: inset 0 0 10vw rgba(255,154,255,0.5);
   animation: spin 50s infinite ease;
-
 }
 
 .wave::before {
@@ -34,7 +36,6 @@
   border-radius: 42%;
   box-shadow: inset 0 0 10vw rgba(255,255,0,0.8);
   animation: spin 56s infinite ease;
-
 }
 
 .wave::after {
@@ -42,7 +43,6 @@
   height: 98%;
   top: 0;
   left: 0;
-
   border-radius: 42%;
   box-shadow: inset 0 0 10vw rgba(0,255,255,0.8);
   animation: spin 42s infinite ease;

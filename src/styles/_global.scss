@@ -16,47 +16,6 @@ body {
 
 
   scroll-behavior: smooth;
-
-  .overlay {
-    max-width: 1300px;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 30px;
-
-    border-left: 1px solid $border-overlay;
-    border-right: 1px solid $border-overlay;
-
-    position: relative;
-
-    @include for-desktop-up {
-      width: 95%;
-    }
-    @include for-phone-only {
-      padding-top: 10px;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 33.3%;
-      width: 1px;
-      background-color: rgba(255, 255, 255, 0.11);
-      z-index: 2;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 33.3%;
-      width: 1px;
-      background-color: rgba(255, 255, 255, 0.11);
-      z-index: 2;
-    }
-
-  }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -86,7 +45,6 @@ button {
 .container {
   max-width: 1300px;
   margin: 0 auto;
-  position: relative;
 }
 
 .section {

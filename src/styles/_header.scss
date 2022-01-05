@@ -4,14 +4,18 @@
 .header {
   padding-top: 15px;
   height: 140px;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
-  overflow: hidden;
-  border-bottom: 1px;
+  background: none;
+  transition: background .5s linear;
+
   border-radius: 0 0 20% 20%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  //box-shadow: rgba(255,255,0,0.4) 0px 5px, rgba(0,255,255,0.3) 0px 10px, rgba(255,154,255, 0.2) 0px 15px, rgba(255,154,255, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+  z-index: 11;
 
   @include for-phone-only {
     max-height: 68px;
@@ -20,11 +24,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    @include for-desktop-up {
+      width: 95%;
+    }
   }
   .logo {
+    position: relative;
+    z-index: 2;
     transform: rotate(-10deg);
     cursor: pointer;
+    transition: transform .5s cubic-bezier(.45, -0.67, .53, 1.63);
 
     &__main {
       font-family: secondaryBold, 'sans-serif';
@@ -38,6 +50,8 @@
         span {
           display: inline-block;
           transform: skew(-10deg);
+          position: relative;
+          z-index: 2;
           @include volume-inner;
         }
       }
