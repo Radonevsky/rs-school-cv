@@ -10,7 +10,7 @@
   left: 0;
   right: 0;
   background: none;
-  transition: background .5s linear;
+  transition: all .5s linear;
 
   border-radius: 0 0 20% 20%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -18,7 +18,8 @@
   z-index: 11;
 
   @include for-phone-only {
-    max-height: 68px;
+    max-height: 75px;
+    padding-top: 0;
   }
   &__inner {
     display: flex;
@@ -37,6 +38,9 @@
     transform: rotate(-10deg);
     cursor: pointer;
     transition: transform .5s cubic-bezier(.45, -0.67, .53, 1.63);
+    @include for-phone-only {
+      transform: none;
+    }
 
     &__main {
       font-family: secondaryBold, 'sans-serif';
