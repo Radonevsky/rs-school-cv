@@ -2,33 +2,60 @@
 @import "variables";
 
 .header {
-  display: flex;
-  height: 78px;
+  padding-top: 15px;
+  height: 140px;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: none;
+  transition: all .5s linear;
 
-  position: relative;
+  border-radius: 0 0 20% 20%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  //box-shadow: rgba(255,255,0,0.4) 0px 5px, rgba(0,255,255,0.3) 0px 10px, rgba(255,154,255, 0.2) 0px 15px, rgba(255,154,255, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+  z-index: 11;
 
   @include for-phone-only {
-    max-height: 58px;
+    max-height: 75px;
+    padding-top: 0;
   }
-
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    @include for-desktop-up {
+      width: 95%;
+    }
+  }
   .logo {
+    position: relative;
+    z-index: 2;
     transform: rotate(-10deg);
     cursor: pointer;
+    transition: transform .5s cubic-bezier(.45, -0.67, .53, 1.63);
+    @include for-phone-only {
+      transform: none;
+    }
 
     &__main {
       font-family: secondaryBold, 'sans-serif';
       font-weight: bold;
       font-size: 45px;
-      color: $red;
+      color: $yellow;
       letter-spacing: 0.2rem;
 
       .animation {
         @include volume-container;
         span {
+          display: inline-block;
           transform: skew(-10deg);
+          position: relative;
+          z-index: 2;
           @include volume-inner;
         }
       }
@@ -39,10 +66,10 @@
       }
     }
     &__caption {
-      font-family: secondaryBold, 'sans-serif';
+      font-family: secondaryRegular, 'sans-serif';
       font-size: 18px;
       margin-top: -3px;
-      color: $green;
+      color: $pink;
       letter-spacing: 0.2rem;
 
       .animation {
@@ -63,17 +90,32 @@
     @include for-tablet-portrait-up {
       position: fixed;
       top: 20px;
-      bottom: 20px;
+      bottom: 20%;
       right: -100%;
 
       width: 300px;
-
+      background-color: $background;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
-      background-color: $background;
-      box-shadow: 0 0 3px 1px lighten($blue, 10%);
 
+      animation: background 5s infinite ease;
       transition: right .3s;
+      z-index: 10;
+
+      @keyframes background {
+        0% {
+          box-shadow: inset 0 0 10vw rgba(255,154,255,0.5);
+        }
+        33% {
+          box-shadow: inset 0 0 10vw rgba(255,255,0,0.5);
+        }
+        66% {
+          box-shadow: inset 0 0 10vw rgba(0,255,255,0.5);
+        }
+        100% {
+          box-shadow: inset 0 0 10vw rgba(255,154,255,0.5);
+        }
+      }
     }
     .nav__list {
       display: flex;
@@ -85,7 +127,7 @@
         max-width: 110px;
 
         border-radius: 30px;
-        background-color: #1F1F1F;
+
         .nav__list-item {
           margin: 0;
         }
@@ -103,7 +145,8 @@
         &:last-child {
           margin-right: 0;
         }
-        /*&:before {
+        //Underline
+/*        &:before {
           content: "";
           position: absolute;
           left: 0;
@@ -113,8 +156,8 @@
           width: 0;
           background-color: $red;
           box-shadow: $shadow 1px 1px, $shadow 2px 2px;
-        }*/
-/*        &:hover:before {
+        }
+        &:hover:before {
           width: 100%;
           transition: cubic-bezier(.45, -0.67, .53, 1.63) .3s all;
 
@@ -124,7 +167,7 @@
         }
       }
       a {
-        color: lighten($green, 10%);
+        color: lighten($yellow, 10%);
         transition: color .3s;
       }
     }
@@ -145,8 +188,12 @@
     display: none;
     $burger-size: 32px;
 
+    @include for-tablet-portrait-up {
+      display: block;
+    }
+
     .burger__button {
-      z-index: 10;
+      z-index: 12;
       width: $burger-size * 1.5;
       height: $burger-size;
       position: relative;
@@ -156,6 +203,9 @@
         width: $burger-size * 1.5;
         height: $burger-size;
       }
+      &:hover {
+        cursor: pointer;
+      }
 
       .burger__line {
         position: absolute;
@@ -164,6 +214,7 @@
         right: 0;
         height: 2px;
         transition: .2s ease-out all;
+        @include volume-shadow;
       }
       .burger__line:nth-child(1) {
         top: 0;
@@ -178,10 +229,6 @@
         bottom: 0;
       }
       &:hover {
-        cursor: pointer;
-        .burger__line {
-          box-shadow: 0 0 2px 1px $red;
-        }
         .burger__line:nth-child(1) {
           left: 40%;
         }
@@ -199,15 +246,14 @@
       display: none;
     }
 
-    @include for-tablet-portrait-up {
-      display: block;
-    }
 
     &.active, &.active:hover{
+      .burger__line {
+        box-shadow: none;
+      }
       .burger__line:nth-child(1) {
         left: 50%;
         right: 50%;
-        box-shadow: none;
       }
       .burger__line:nth-child(2) {
         transform: rotate(45deg);
@@ -215,7 +261,7 @@
       }
       .burger__line:nth-child(3) {
         transform: rotate(-45deg);
-        top: 50%
+        top: 50%;
       }
       .burger__line:nth-child(4) {
         left: 50%;

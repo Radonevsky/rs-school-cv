@@ -22,7 +22,17 @@
     background-color: $blue;
     border-radius: 15px;
     cursor: pointer;
+    z-index: 10;
     @include volume-shadow;
+    transition: text-shadow .1s;
+    @include for-phone-only {
+      width: 100%;
+    }
+    &:hover {
+      p {
+        text-shadow: $red -1px 0, $red 0 1px, $red 1px 0, $red 0 -1px;
+      }
+    }
     @include for-tablet-portrait-up {
       margin-right: 30px;
     }

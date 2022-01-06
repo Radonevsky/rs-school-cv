@@ -1,0 +1,42 @@
+@import "mixins";
+@import "variables";
+
+.overlay {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 200px;
+  border-left: 1px solid $border-overlay;
+  border-right: 1px solid $border-overlay;
+  z-index: 10;
+  position: relative;
+
+  @include for-desktop-up {
+    width: 95%;
+  }
+  @include for-phone-only {
+    padding-top: 10px;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 33.3%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.11);
+    z-index: 10;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 33.3%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.11);
+    z-index: 10;
+  }
+
+}

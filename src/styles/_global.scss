@@ -11,52 +11,11 @@ html {
 body {
   margin: 0;
   font-family: mainRegular, sans-serif;
-  color: #FFF;
+  color: #fff;
   background: $background;
 
 
   scroll-behavior: smooth;
-
-  .overlay {
-    max-width: 1300px;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 30px;
-
-    border-left: 1px solid $border-overlay;
-    border-right: 1px solid $border-overlay;
-
-    position: relative;
-
-    @include for-desktop-up {
-      width: 95%;
-    }
-    @include for-phone-only {
-      padding-top: 10px;
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 33.3%;
-      width: 1px;
-      background-color: rgba(255, 255, 255, 0.11);
-      z-index: -1;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 33.3%;
-      width: 1px;
-      background-color: rgba(255, 255, 255, 0.11);
-      z-index: -1;
-    }
-
-  }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -74,7 +33,7 @@ ul, ol, li {
 
 a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #fff;
 }
 
 button {
@@ -86,13 +45,12 @@ button {
 .container {
   max-width: 1300px;
   margin: 0 auto;
-
 }
 
 .section {
-  margin-top: 150px;
+  margin-top: 100px;
   @include for-tablet-portrait-up {
-    margin-top: 80px;
+    margin-top: 60px;
   }
   @include for-phone-only {
     margin-top: 40px;

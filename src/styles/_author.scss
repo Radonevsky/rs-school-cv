@@ -5,9 +5,9 @@
 .author {
   cursor: default;
   display: flex;
-  margin-top: 150px;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
   @include for-tablet-portrait-up {
     margin-top: 80px;
     flex-wrap: wrap-reverse;
@@ -27,6 +27,7 @@
   }
 
   &__title {
+
     font-family: mainBold, 'sans-serif';
     font-size: 78px;
     line-height: 116%;
@@ -36,6 +37,7 @@
     .animation {
       @include volume-container;
       span {
+
         @include volume-inner;
       }
     }
@@ -47,12 +49,13 @@
       font-size: 42px;
     }
 
+
   }
 
   &__subtitle {
     margin-top: 24px;
     font-size: 30px;
-    color: $green;
+    color: $yellow;
 
     @include volume-inner;
     @include for-phone-only {
@@ -86,11 +89,10 @@
       }
     }
   }
+  canvas {
 
-  .canvas {
-    max-width: 50%;
-    width: 100%;
-    height: 100%;
+    @include for-phone-only {
+      width: 300px;
+    }
   }
-
 }
