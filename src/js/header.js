@@ -1,10 +1,9 @@
 const header = document.querySelector('.header')
 const headerLogo = document.querySelector('.logo')
-const headerLogoCaption = document.querySelector('.logo__caption')
-const overlay = document.querySelector('.overlay')
+const nav = document.querySelector('.nav')
+
 const phoneWidth = 599;
 
-console.log(document.documentElement.clientWidth)
 // For phone landscape up
 if (document.documentElement.clientWidth > phoneWidth) {
     window.addEventListener('scroll', function () {
@@ -13,6 +12,7 @@ if (document.documentElement.clientWidth > phoneWidth) {
             header.style.background = '#253242'
             header.style.height = '100px'
             header.style.paddingTop = '0'
+            burger.style.top = ''
         }
         if (pageYOffset <= headerLogo.offsetHeight + 30) {
             headerLogo.style.transform = 'rotate(-10deg)'
