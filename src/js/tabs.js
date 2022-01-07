@@ -1,11 +1,13 @@
 import {addClass, removeClass} from "./helpers";
 
 /*Tabs*/
-let tabHeaders = document.querySelector('.tabs__header')
-let tabHeaderItems = document.querySelectorAll('.tabs__header-item')
-let tabContentItems = document.querySelectorAll('.tabs__content-item')
-let buttonPrev = document.querySelector('.prev.button')
-let buttonNext = document.querySelector('.next.button')
+const tabHeaders = document.querySelector('.tabs__header')
+const tabHeaderItems = document.querySelectorAll('.tabs__header-item')
+const slider = document.querySelector('.slider')
+const sliderContent = document.querySelector('.tabs__content')
+const tabContentItems = document.querySelectorAll('.tabs__content-item')
+const buttonPrev = document.querySelector('.prev.button')
+const buttonNext = document.querySelector('.next.button')
 
 
 function clearContent() {
@@ -41,16 +43,36 @@ tabHeaderItems.forEach(tab => {
 showAll()
 
 /*Slider*/
-let position = 100
-buttonPrev.addEventListener('click', ()=> {
+let countSlides = slider.querySelectorAll('.show').length
+const slidesToShow = 3
+const slidesToScroll = 1
+const showWidth = sliderContent.clientWidth
+const slideWidth = showWidth / slidesToShow
+const movePosition = slidesToScroll * slideWidth
 
-    tabContentItems.forEach((el, idx) => {
-        el.style.transform = `translateX(-${position}px)`
-    })
-    position = position + 100
+let position = 0
+
+buttonPrev.addEventListener('click', ()=> {
+    position = position - movePosition
+    setPosition()
+    checkButtons()
 })
 
 buttonNext.addEventListener('click', ()=> {
-
+    position = position + movePosition
+    setPosition()
+    checkButtons()
 })
 
+const setPosition = () => {
+    tabContentItems.forEach((el, idx) => {
+        el.style.transform = `translateX(${position}px)`
+    })
+}
+
+const checkButtons = () => {
+    buttonPrev.disabled = position === 0
+    //buttonNext.disabled = position <= countSlides * slideWidth
+}
+
+checkButtons()
