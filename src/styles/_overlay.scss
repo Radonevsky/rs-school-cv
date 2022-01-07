@@ -14,6 +14,9 @@
   @include for-desktop-up {
     width: 95%;
   }
+  @include for-tablet-portrait-up {
+    padding-top: 150px;
+  }
   @include for-phone-only {
     padding-top: 10px;
   }

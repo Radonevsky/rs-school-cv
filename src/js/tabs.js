@@ -1,8 +1,11 @@
 import {addClass, removeClass} from "./helpers";
 
+/*Tabs*/
 let tabHeaders = document.querySelector('.tabs__header')
 let tabHeaderItems = document.querySelectorAll('.tabs__header-item')
 let tabContentItems = document.querySelectorAll('.tabs__content-item')
+let buttonPrev = document.querySelector('.prev.button')
+let buttonNext = document.querySelector('.next.button')
 
 
 function clearContent() {
@@ -37,6 +40,17 @@ tabHeaderItems.forEach(tab => {
 
 showAll()
 
+/*Slider*/
+let position = 100
+buttonPrev.addEventListener('click', ()=> {
 
+    tabContentItems.forEach((el, idx) => {
+        el.style.transform = `translateX(-${position}px)`
+    })
+    position = position + 100
+})
 
+buttonNext.addEventListener('click', ()=> {
+
+})
 

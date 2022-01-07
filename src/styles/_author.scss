@@ -9,7 +9,6 @@
   align-items: center;
   z-index: 1;
   @include for-tablet-portrait-up {
-    margin-top: 80px;
     flex-wrap: wrap-reverse;
     justify-content: center;
   }
@@ -37,7 +36,6 @@
     .animation {
       @include volume-container;
       span {
-
         @include volume-inner;
       }
     }
