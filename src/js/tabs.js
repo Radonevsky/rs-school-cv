@@ -37,42 +37,79 @@ tabHeaderItems.forEach(tab => {
         removeClass(activeNow, 'active')
         addClass(tab, 'active')
         tab.classList.contains('all_projects') ? showAll() : showTab(tab)
+        refreshSliderProps()
+        checkButtons()
     }
+
 })
 
 showAll()
 
-/*Slider*/
-let countSlides = slider.querySelectorAll('.show').length
-const slidesToShow = 3
+/* Slider */
+let slides = Array.from(slider.querySelectorAll('.show'))
+console.log(slides)
+let currentSlide = 1
+let countSlides = slides.length
+let slidesToShow = 3
+let spaceSlides = 30;
+let showWidth = sliderContent.clientWidth
+let slideWidth = (showWidth - ((slidesToShow - 1) * spaceSlides)) / slidesToShow
 const slidesToScroll = 1
-const showWidth = sliderContent.clientWidth
-const slideWidth = showWidth / slidesToShow
-const movePosition = slidesToScroll * slideWidth
+
+const movePosition = slidesToScroll * (slideWidth + spaceSlides)
 
 let position = 0
 
+setScaleForCurrent()
+/*Check slides props*/
+function refreshSliderProps() {
+    slides = Array.from(slider.querySelectorAll('.show'))
+    countSlides = slides.length
+    position = 0
+    if (countSlides < 3) {
+        setPosition(1)
+    } else if (countSlides > 2) {
+        currentSlide = 1
+        setPosition(.8)
+    }
+}
+
+function setScaleForCurrent() {
+    if (countSlides > 2) {
+        slides[currentSlide].style.transform = `translateX(${position}px) scale(1)`
+    }
+}
+
 buttonPrev.addEventListener('click', ()=> {
-    position = position - movePosition
-    setPosition()
+    currentSlide -= 1
+    position = position + movePosition
+    setPosition(.8)
     checkButtons()
 })
 
 buttonNext.addEventListener('click', ()=> {
-    position = position + movePosition
-    setPosition()
+    currentSlide += 1
+    position = position - movePosition
+    setPosition(.8)
     checkButtons()
 })
 
-const setPosition = () => {
-    tabContentItems.forEach((el, idx) => {
-        el.style.transform = `translateX(${position}px)`
+const setPosition = (scale) => {
+    slides.forEach((el, idx) => {
+        el.style.transform = `translateX(${position}px) scale(${scale})`
     })
+    setScaleForCurrent()
 }
 
 const checkButtons = () => {
-    buttonPrev.disabled = position === 0
-    //buttonNext.disabled = position <= countSlides * slideWidth
+    buttonPrev.disabled = currentSlide <= 0 || countSlides < 3
+    buttonNext.disabled = currentSlide >= slides.length - 1|| countSlides < 3
 }
 
 checkButtons()
+
+// Size
+
+window.onresize = function () {
+    if ( window.innerWidth < 992) {}
+}
