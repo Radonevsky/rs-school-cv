@@ -47,7 +47,6 @@ showAll()
 
 /* Slider */
 let slides = Array.from(slider.querySelectorAll('.show'))
-console.log(slides)
 let currentSlide = 1
 let countSlides = slides.length
 let slidesToShow = 3
@@ -63,12 +62,15 @@ let position = 0
 setScaleForCurrent()
 /*Check slides props*/
 function refreshSliderProps() {
+    removeEventFromItems()
     slides = Array.from(slider.querySelectorAll('.show'))
     countSlides = slides.length
     position = 0
-    if (countSlides < 3) {
+    if (countSlides <= 2) {
+
         setPosition(1)
     } else if (countSlides > 2) {
+        addEventOnItems()
         currentSlide = 1
         setPosition(.8)
     }
@@ -77,26 +79,52 @@ function refreshSliderProps() {
 function setScaleForCurrent() {
     if (countSlides > 2) {
         slides[currentSlide].style.transform = `translateX(${position}px) scale(1)`
+        slides[currentSlide].style.boxShadow = "10px 10px #533d4a"
     }
 }
 
-buttonPrev.addEventListener('click', ()=> {
-    currentSlide -= 1
-    position = position + movePosition
-    setPosition(.8)
-    checkButtons()
-})
+const addEventOnItems = function()  {
+    slides.forEach((el, idx) => {
+        el.onclick = function() {
+            if (idx < currentSlide) {
+                toPrevItem()
+            } else if (idx > currentSlide) {
+                toNextItem()
+            }
+        }
+    })
+}
 
-buttonNext.addEventListener('click', ()=> {
+const removeEventFromItems = function() {
+    slides.forEach((el, idx) => {
+        el.onclick = function() {
+        }
+    })
+}
+
+const toNextItem = () => {
     currentSlide += 1
     position = position - movePosition
     setPosition(.8)
     checkButtons()
-})
+}
+const toPrevItem = () => {
+    currentSlide -= 1
+    position = position + movePosition
+    setPosition(.8)
+    checkButtons()
+}
+
+buttonNext.addEventListener('click', toNextItem)
+buttonPrev.addEventListener('click', toPrevItem)
+
 
 const setPosition = (scale) => {
     slides.forEach((el, idx) => {
         el.style.transform = `translateX(${position}px) scale(${scale})`
+        if (scale < 1) {
+            el.style.boxShadow = "6px 6px #533d4a"
+        }
     })
     setScaleForCurrent()
 }
@@ -107,7 +135,7 @@ const checkButtons = () => {
 }
 
 checkButtons()
-
+addEventOnItems()
 // Size
 
 window.onresize = function () {
