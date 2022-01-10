@@ -80,6 +80,7 @@ function setScaleForCurrent() {
     if (countSlides > 2) {
         slides[currentSlide].style.transform = `translateX(${position}px) scale(1)`
         slides[currentSlide].style.boxShadow = "10px 10px #533d4a"
+        slides[currentSlide].style.opacity = "1"
     }
 }
 
@@ -122,9 +123,16 @@ buttonPrev.addEventListener('click', toPrevItem)
 const setPosition = (scale) => {
     slides.forEach((el, idx) => {
         el.style.transform = `translateX(${position}px) scale(${scale})`
+        el.style.opacity = "1"
         if (scale < 1) {
             el.style.boxShadow = "6px 6px #533d4a"
+            el.style.opacity = "0.5"
+            if (idx > currentSlide + 1 || idx < currentSlide - 1) {
+                el.style.transform = "scale(0.1)"
+                el.style.opacity = "0"
+            }
         }
+
     })
     setScaleForCurrent()
 }
