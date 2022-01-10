@@ -76,7 +76,6 @@
         @include volume-container;
         span {
           transform: skew(-10deg);
-
         }
       }
 
@@ -137,8 +136,7 @@
       }
 
       &-item {
-
-        @include volume-inner;
+        text-shadow: 4px 4px $shadow, 5px 5px $shadow;
         margin-right: 50px;
         position: relative;
 
