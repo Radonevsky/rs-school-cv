@@ -128,11 +128,10 @@ const setPosition = (scale) => {
             el.style.boxShadow = "6px 6px #533d4a"
             el.style.opacity = "0.5"
             if (idx > currentSlide + 1 || idx < currentSlide - 1) {
-                el.style.transform = "scale(0.1)"
+                el.style.transform = `translateX(${position}px) scale(0.01)`
                 el.style.opacity = "0"
             }
         }
-
     })
     setScaleForCurrent()
 }
