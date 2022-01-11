@@ -18,7 +18,9 @@
 }
 
 //=====@Media=====//
-@mixin for-phone-only {
+@mixin for-small-phone-only {
+  @media (max-width: 320px) { @content; }
+}@mixin for-phone-only {
   @media (max-width: 599px) { @content; }
 }
 @mixin for-phone-landscape-up {
