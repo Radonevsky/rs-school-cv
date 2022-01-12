@@ -1,0 +1,32 @@
+@import "variables";
+
+.education {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-item {
+      padding-left: 2em;
+      font-size: 18px;
+      position: relative;
+      color: #fff;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1em;
+        height: 1em;
+
+        border-radius: 50%;
+        background-color: $pink;
+        box-shadow: 4px 4px $shadow;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+  }
+}
