@@ -50,6 +50,9 @@ button {
 
 .section {
   margin-top: 70px;
+  &:last-child {
+    padding-bottom: 50px;
+  }
   @include for-tablet-portrait-up {
     margin-top: 60px;
   }
