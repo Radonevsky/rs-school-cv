@@ -67,7 +67,6 @@ function refreshSliderProps() {
     countSlides = slides.length
     position = 0
     if (countSlides <= 2) {
-
         setPosition(1)
     } else if (countSlides > 2) {
         addEventOnItems()
@@ -81,6 +80,7 @@ function setScaleForCurrent() {
         slides[currentSlide].style.transform = `translateX(${position}px) scale(1)`
         slides[currentSlide].style.boxShadow = "10px 10px #533d4a"
         slides[currentSlide].style.opacity = "1"
+        addClass(slides[currentSlide], 'activeLink')
     }
 }
 
@@ -100,6 +100,7 @@ const removeEventFromItems = function() {
     slides.forEach((el, idx) => {
         el.onclick = function() {
         }
+        addClass(el, 'activeLink')
     })
 }
 
@@ -125,6 +126,7 @@ const setPosition = (scale) => {
         el.style.transform = `translateX(${position}px) scale(${scale})`
         el.style.opacity = "1"
         if (scale < 1) {
+            removeClass(el, 'activeLink')
             el.style.boxShadow = "6px 6px #533d4a"
             el.style.opacity = "0.5"
             if (idx > currentSlide + 1 || idx < currentSlide - 1) {
