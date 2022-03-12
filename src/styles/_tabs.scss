@@ -128,6 +128,10 @@
             bottom: 0;
             right: 0;
             transition: all .2s linear;
+            @include for-phone-landscape-up {
+              font-size: 8px;
+              font-family: mainRegular, 'sans-serif';
+            }
             &:hover {
               bottom: 3px;
               right: 3px;
