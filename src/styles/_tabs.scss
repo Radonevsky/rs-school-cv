@@ -54,6 +54,12 @@
       overflow: hidden;
       border-radius: 30px;
       z-index: 1;
+      .activeLink {
+        span {
+          bottom: 0;
+          transition: bottom .3s linear;
+        }
+      }
       @include for-tablet-portrait-up {
         max-width: 730px;
         gap: 20px;
@@ -94,6 +100,7 @@
         cursor: pointer;
         border: 3px solid $yellow;
         opacity: 0.5;
+        position: relative;
 
         border-radius: 30px;
         overflow: hidden;
@@ -102,6 +109,38 @@
         transform: scale(.8);
         transition: transform 1s ease, display .5s ease, box-shadow 1s ease,
                     opacity 1s ease;
+        span {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          height: 30%;
+          position: absolute;
+          bottom: -30%;
+          z-index: 3;
+          background-color: rgba(83, 61, 74, 0.8);
+          transition: bottom .3s linear;
+          a {
+            display: inline-block;
+            font-family: mainBold, 'sans-serif';
+            color: $pink;
+            position: relative;
+            bottom: 0;
+            right: 0;
+            transition: all .2s linear;
+            &:hover {
+              bottom: 3px;
+              right: 3px;
+              color: lighten($pink, 10%);
+              transition: all .2s linear;
+            }
+            &:active {
+              bottom: 0;
+              right: 0;
+              transition: all 0s;
+            }
+          }
+        }
         @include for-tablet-portrait-up {
           min-width: 230px;
           max-width: 230px;
